@@ -1,0 +1,899 @@
+<html><head><style>body {
+   color: black;
+}
+</style></head><body><hr>
+<h2 id="front-matter">Front matter</h2>
+<p>lang: ru-RU
+title: Laboratory №3
+author: |
+    Anna D. Zaytseva\inst{1,3}
+institute: |
+    \inst{1}RUDN University, Moscow, Russian Federation
+date: NEC--2024, 21 September, Moscow</p>
+<h2 id="formatting">Formatting</h2>
+<p>toc: false
+slide_level: 2
+theme: metropolis
+header-includes: </p>
+<ul>
+<li>\metroset{progressbar=frametitle,sectionpage=progressbar,numbering=fraction}</li>
+<li>&#39;\makeatletter&#39;</li>
+<li>&#39;\beamer@ignorenonframefalse&#39;</li>
+<li>&#39;\makeatother&#39;
+aspectratio: 43
+section-titles: true</li>
+</ul>
+<hr>
+<h1 id="-">Цель работы</h1>
+<p>Цель работы --- Получение практических навыков работы в консоли с атрибутами файлов для групп пользователей.</p>
+<h1 id="-">Задание</h1>
+<ul>
+<li>Последовательно выполнить все пункты (указанные в файле с заданием к лабораторной работе №3), занося ответы на поставленные вопросы и замечания в отчёт.</li>
+</ul>
+<h1 id="-">Выполнение лабораторной работы</h1>
+<h2 id="steps-1-3">Steps 1-3</h2>
+<p>Создала учётные записи пользователей guest и guest2 и добавила пользователя guest2 в группу guest с помощью команды <code>gpasswd -a guest2 guest</code></p>
+<p><img src="images/1.png" alt="Создание учётной записи guest">{ #fig:001 width=70% }</p>
+<p><img src="images/2.png" alt="Создание учётной записи guest2">{ #fig:002 width=70% }</p>
+<p><img src="images/3.png" alt="Добавление пользователя guest2 в группу guest">{ #fig:003 width=70% }</p>
+<h2 id="steps-4-7">Steps 4-7</h2>
+<p>Осуществила вход в систему от двух пользователей на двух разных консолях: guest на первой консоли и guest2 на второй консоли с помощью команды <code>su &lt;имя пользователя&gt;</code> и проверила доступы с помощью нескольких команд:</p>
+<p><img src="images/4.png" alt="Вход в систему от двух пользователей на двух разных консолях">{ #fig:004 width=70% }
+<img src="images/5.png" alt="Определила текущую директорию для обоих пользователей">{ #fig:005 width=70% }
+<img src="images/6.png" alt="Определила информацию о группах для обоих пользователей">{ #fig:006 width=70% }
+<img src="images/7.png" alt="Посмотрела содержимое файла /etc/group для обоих пользователей">{ #fig:007 width=70% }
+<img src="images/8.png" alt="Посмотрела содержимое файла /etc/group для обоих пользователей">{ #fig:008 width=70% }</p>
+<h2 id="steps-8-10">Steps 8-10</h2>
+<p>8) От имени пользователя guest2 выполнила регистрацию пользователя guest2 в группе guest командой <code>newgrp guest</code>; От имени пользователя guest изменила права директории /home/guest, разрешив все действия для пользователей группы: <code>chmod g+rwx /home/guest</code>; От имени пользователя guest сняла с директории /home/guest/dir1 все атрибуты командой <code>chmod 000 dir1</code></p>
+<p><img src="images/9.png" alt="Регистрация пользователя guest2 в группе guest">{ #fig:009 width=70% }
+<img src="images/10.png" alt="От имени пользователя guest изменила права директории /home/guest">{ #fig:010 width=70% }
+<img src="images/11.png" alt="От имени пользователя guest сняла с директории /home/guest/dir1 все атрибуты">{ #fig:011 width=70% }</p>
+<h2 id="step-11">Step 11</h2>
+<p>Меняя атрибуты у директории dir1 и файла file1 от имени пользователя guest и делая проверку от пользователя guest2, заполнила таблицу 3.1:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Права  директории</strong></th>
+<th style="text-align:center"><strong>Права  файла</strong></th>
+<th style="text-align:center"><strong>Создание  файла</strong></th>
+<th style="text-align:center"><strong>Удаление  файла</strong></th>
+<th style="text-align:center"><strong>Запись  в файл</strong></th>
+<th style="text-align:center"><strong>Чтение  файла</strong></th>
+<th style="text-align:center"><strong>Смена  директории</strong></th>
+<th style="text-align:center"><strong>Просмотр файлов  в директории</strong></th>
+<th style="text-align:center"><strong>Переименование  файла</strong></th>
+<th style="text-align:center"><strong>Смена  атрибутов файла</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">000</td>
+<td style="text-align:center">000</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">000</td>
+<td style="text-align:center">010</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">000</td>
+<td style="text-align:center">020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">000</td>
+<td style="text-align:center">030</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">000</td>
+<td style="text-align:center">040</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">000</td>
+<td style="text-align:center">050</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">000</td>
+<td style="text-align:center">060</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">000</td>
+<td style="text-align:center">070</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">010</td>
+<td style="text-align:center">000</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">010</td>
+<td style="text-align:center">010</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">010</td>
+<td style="text-align:center">020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">010</td>
+<td style="text-align:center">030</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">010</td>
+<td style="text-align:center">040</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">010</td>
+<td style="text-align:center">050</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">010</td>
+<td style="text-align:center">060</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">010</td>
+<td style="text-align:center">070</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">020</td>
+<td style="text-align:center">000</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">020</td>
+<td style="text-align:center">010</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">020</td>
+<td style="text-align:center">020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">020</td>
+<td style="text-align:center">030</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">020</td>
+<td style="text-align:center">040</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">020</td>
+<td style="text-align:center">050</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">020</td>
+<td style="text-align:center">060</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">020</td>
+<td style="text-align:center">070</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">030</td>
+<td style="text-align:center">000</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">030</td>
+<td style="text-align:center">010</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">030</td>
+<td style="text-align:center">020</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">030</td>
+<td style="text-align:center">030</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">030</td>
+<td style="text-align:center">040</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">030</td>
+<td style="text-align:center">050</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">030</td>
+<td style="text-align:center">060</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">030</td>
+<td style="text-align:center">070</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">040</td>
+<td style="text-align:center">000</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">040</td>
+<td style="text-align:center">010</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">040</td>
+<td style="text-align:center">020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">040</td>
+<td style="text-align:center">030</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">040</td>
+<td style="text-align:center">040</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">040</td>
+<td style="text-align:center">050</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">040</td>
+<td style="text-align:center">060</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">040</td>
+<td style="text-align:center">070</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">050</td>
+<td style="text-align:center">000</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">050</td>
+<td style="text-align:center">010</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">050</td>
+<td style="text-align:center">020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">050</td>
+<td style="text-align:center">030</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">050</td>
+<td style="text-align:center">040</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">050</td>
+<td style="text-align:center">050</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">050</td>
+<td style="text-align:center">060</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">050</td>
+<td style="text-align:center">070</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">060</td>
+<td style="text-align:center">000</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">060</td>
+<td style="text-align:center">010</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">060</td>
+<td style="text-align:center">020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">060</td>
+<td style="text-align:center">030</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">060</td>
+<td style="text-align:center">040</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">060</td>
+<td style="text-align:center">050</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">060</td>
+<td style="text-align:center">060</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">060</td>
+<td style="text-align:center">070</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">070</td>
+<td style="text-align:center">000</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">070</td>
+<td style="text-align:center">010</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">070</td>
+<td style="text-align:center">020</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">070</td>
+<td style="text-align:center">030</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">070</td>
+<td style="text-align:center">040</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">070</td>
+<td style="text-align:center">050</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">070</td>
+<td style="text-align:center">060</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">070</td>
+<td style="text-align:center">070</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="step-12">Step 12</h2>
+<p>На основании заполненной таблицы определила те или иные минимально необходимые права для выполнения пользователем guest2 операций внутри директории dir1 и заполнила таблицу 3.2:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Операция</strong></th>
+<th style="text-align:center"><strong>Минимальные права на директорию</strong></th>
+<th style="text-align:center"><strong>Минимальные права на файл</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Создание файла</td>
+<td style="text-align:center">(-wx)(3)</td>
+<td style="text-align:center">(---)(0)</td>
+</tr>
+<tr>
+<td style="text-align:center">Удаление файла</td>
+<td style="text-align:center">(-wx)(3)</td>
+<td style="text-align:center">(---)(0)</td>
+</tr>
+<tr>
+<td style="text-align:center">Чтение файла</td>
+<td style="text-align:center">(--x)(1)</td>
+<td style="text-align:center">(r--)(4)</td>
+</tr>
+<tr>
+<td style="text-align:center">Запись в файл</td>
+<td style="text-align:center">(--x)(1)</td>
+<td style="text-align:center">(-w-)(2)</td>
+</tr>
+<tr>
+<td style="text-align:center">Переименование файла</td>
+<td style="text-align:center">(-wx)(3)</td>
+<td style="text-align:center">(---)(0)</td>
+</tr>
+<tr>
+<td style="text-align:center">Создание поддиректории</td>
+<td style="text-align:center">(-wx)(3)</td>
+<td style="text-align:center">(---)(0)</td>
+</tr>
+<tr>
+<td style="text-align:center">Удаление поддиректории</td>
+<td style="text-align:center">(-wx)(3)</td>
+<td style="text-align:center">(---)(0)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="steps-13-14">Steps 13-14</h2>
+<p>Сохранила отчёт в 3 форматах: docx, pdf, md. Обновила данные на GitHub.</p>
+<h1 id="-">Вывод</h1>
+<p>Я получила практические навыкы работы в консоли с атрибутами файлов для групп пользователей.</p>
+<h1 id="-">Библиография</h1>
+<ol>
+<li>Медведовский И.Д., Семьянов П.В., Платонов В.В. Атака через Internet. — НПО &quot;Мир и семья-95&quot;, 1997. — URL: <a href="http://bugtraq.ru/library/books/attack1/index.html">http://bugtraq.ru/library/books/attack1/index.html</a></li>
+<li>Медведовский И.Д., Семьянов П.В., Леонов Д.Г. Атака на Internet. — Издательство ДМК, 1999. — URL: <a href="http://bugtraq.ru/library/books/attack/index.html">http://bugtraq.ru/library/books/attack/index.html</a></li>
+<li>Запечников С. В. и др. Информационн~пасность открытых систем. Том 1. — М.: Горячаая линия -Телеком, 2006.</li>
+</ol>
+<h2 id="-standout-">{.standout}</h2>
+<p>Спасибо за внимание!</p>
+</body></html>
