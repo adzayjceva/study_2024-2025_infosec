@@ -1,0 +1,148 @@
+<h1 id="цель-работы">Цель работы</h1>
+<p>Цель работы — приобретение пракктических навыков по использованию
+инструмента Burp Suite.</p>
+<h1 id="выполнение-этапа-индивидуального-проекта">Выполнение этапа
+индивидуального проекта</h1>
+<h2 id="steps-1-7">Steps 1-7</h2>
+<p>Подготовка к использованию Burp Suite:</p>
+<figure>
+<img src="images/1.png" id="fig:001" style="width:70.0%"
+alt="Запуск сервисов" />
+<figcaption aria-hidden="true">Запуск сервисов</figcaption>
+</figure>
+<figure>
+<img src="images/2.png" id="fig:002" style="width:70.0%"
+alt="Запуск Burp Suite" />
+<figcaption aria-hidden="true">Запуск Burp Suite</figcaption>
+</figure>
+<figure>
+<img src="images/3.png" id="fig:003" style="width:70.0%"
+alt="Открытие настроек браузера" />
+<figcaption aria-hidden="true">Открытие настроек браузера</figcaption>
+</figure>
+<figure>
+<img src="images/4.png" id="fig:004" style="width:70.0%"
+alt="Изменение Connection settings" />
+<figcaption aria-hidden="true">Изменение Connection
+settings</figcaption>
+</figure>
+<figure>
+<img src="images/5.png" id="fig:005" style="width:70.0%"
+alt="Изменение настроек proxy в Burp Suite" />
+<figcaption aria-hidden="true">Изменение настроек proxy в Burp
+Suite</figcaption>
+</figure>
+<figure>
+<img src="images/6.png" id="fig:006" style="width:70.0%"
+alt="Intercept is on" />
+<figcaption aria-hidden="true">Intercept is on</figcaption>
+</figure>
+<figure>
+<img src="images/7.png" id="fig:007" style="width:70.0%"
+alt="network_allow_hijacking_localhost = true" />
+<figcaption aria-hidden="true">network_allow_hijacking_localhost =
+true</figcaption>
+</figure>
+<h2 id="steps-8-11">Steps 8-11</h2>
+<p>Работа с Burp Suite - захват запроса:</p>
+<figure>
+<img src="images/8.png" id="fig:008" style="width:70.0%"
+alt="Forward для загрузки страницы DVWA" />
+<figcaption aria-hidden="true">Forward для загрузки страницы
+DVWA</figcaption>
+</figure>
+<figure>
+<img src="images/9.png" id="fig:009" style="width:70.0%"
+alt="Страница авторизации" />
+<figcaption aria-hidden="true">Страница авторизации</figcaption>
+</figure>
+<figure>
+<img src="images/10.png" id="fig:010" style="width:70.0%"
+alt="Вкладка Target" />
+<figcaption aria-hidden="true">Вкладка Target</figcaption>
+</figure>
+<figure>
+<img src="images/11.png" id="fig:011" style="width:70.0%"
+alt="Неверный логин" />
+<figcaption aria-hidden="true">Неверный логин</figcaption>
+</figure>
+<h2 id="steps-12-17">Steps 12-17</h2>
+<p>Подготовка к атаке и сама атака (подбор логина и пароля для входа в
+DVWA):</p>
+<figure>
+<img src="images/12.png" id="fig:012" style="width:70.0%"
+alt="Send to Intruder" />
+<figcaption aria-hidden="true">Send to Intruder</figcaption>
+</figure>
+<figure>
+<img src="images/13.png" id="fig:013" style="width:70.0%"
+alt="Intruder" />
+<figcaption aria-hidden="true">Intruder</figcaption>
+</figure>
+<figure>
+<img src="images/14.png" id="fig:014" style="width:70.0%"
+alt="Смена типа атаки и проставление специальных символов" />
+<figcaption aria-hidden="true">Смена типа атаки и проставление
+специальных символов</figcaption>
+</figure>
+<figure>
+<img src="images/15.png" id="fig:015" style="width:70.0%"
+alt="Первый список подбора" />
+<figcaption aria-hidden="true">Первый список подбора</figcaption>
+</figure>
+<figure>
+<img src="images/16.png" id="fig:016" style="width:70.0%"
+alt="Второй список подбора" />
+<figcaption aria-hidden="true">Второй список подбора</figcaption>
+</figure>
+<figure>
+<img src="images/17.png" id="fig:017" style="width:70.0%"
+alt="Атака запущена" />
+<figcaption aria-hidden="true">Атака запущена</figcaption>
+</figure>
+<h2 id="steps-18-23">Steps 18-23</h2>
+<p>Анализ полученных результатов атаки:</p>
+<figure>
+<img src="images/18.png" id="fig:018" style="width:70.0%"
+alt="Смотрю ответ на пару admin-admin" />
+<figcaption aria-hidden="true">Смотрю ответ на пару
+admin-admin</figcaption>
+</figure>
+<figure>
+<img src="images/19.png" id="fig:019" style="width:70.0%"
+alt="Смотрю ответ на пару admin-password" />
+<figcaption aria-hidden="true">Смотрю ответ на пару
+admin-password</figcaption>
+</figure>
+<figure>
+<img src="images/20.png" id="fig:020" style="width:70.0%"
+alt="Дополнительная проверка с Repeater" />
+<figcaption aria-hidden="true">Дополнительная проверка с
+Repeater</figcaption>
+</figure>
+<figure>
+<img src="images/21.png" id="fig:021" style="width:70.0%"
+alt="Результат запроса" />
+<figcaption aria-hidden="true">Результат запроса</figcaption>
+</figure>
+<figure>
+<img src="images/22.png" id="fig:022" style="width:70.0%"
+alt="Follow redirection result" />
+<figcaption aria-hidden="true">Follow redirection result</figcaption>
+</figure>
+<figure>
+<img src="images/23.png" id="fig:023" style="width:70.0%"
+alt="Follow redirection visual result" />
+<figcaption aria-hidden="true">Follow redirection visual
+result</figcaption>
+</figure>
+<h1 id="вывод">Вывод</h1>
+<p>Приобрела практический навык по использованию инструмента Burp
+Suite.</p>
+<h1 id="библиография">Библиография</h1>
+<ul>
+<li>https://www.kaznu.kz/content/files/news/folder23191/%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F%2012%20rus.pdf</li>
+<li>https://esystem.rudn.ru/mod/page/view.php?id=1140635</li>
+</ul>
+<h2 class="standout" id="section"></h2>
+<p>Спасибо за внимание!</p>
