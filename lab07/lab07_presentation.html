@@ -1,0 +1,51 @@
+<html><head><style>body {
+   color: black;
+}
+</style></head><body><hr>
+<h2 id="front-matter">Front matter</h2>
+<p>lang: ru-RU
+title: Lab07
+author: |
+    Anna D. Zaytseva\inst{1,3}
+institute: |
+    \inst{1}RUDN University, Moscow, Russian Federation
+date: NEC--2024, 19 October, Moscow</p>
+<h2 id="formatting">Formatting</h2>
+<p>toc: false
+slide_level: 2
+theme: metropolis
+header-includes: </p>
+<ul>
+<li>\metroset{progressbar=frametitle,sectionpage=progressbar,numbering=fraction}</li>
+<li>&#39;\makeatletter&#39;</li>
+<li>&#39;\beamer@ignorenonframefalse&#39;</li>
+<li>&#39;\makeatother&#39;
+aspectratio: 43
+section-titles: true</li>
+</ul>
+<hr>
+<h1 id="-">Цель работы</h1>
+<p>Цель работы --- приобретение пракктических навыков по использованию инструмента Burp Suite.</p>
+<h1 id="-">Выполнение этапа индивидуального проекта</h1>
+<h2 id="step-1">Step 1</h2>
+<p>Я создала функцию для генерации случайного ключа (Рис. [-@fig:001]):</p>
+<p><img src="images/1.png" alt="Функция генерации ключа">{ #fig:001 width=70% }</p>
+<h2 id="step-2">Step 2</h2>
+<p>Поскольку операция XOR отменяет сама себя, одной функции для шифрования и для дешифрования текста будет достаточно (Рис. [-@fig:002]):</p>
+<p><img src="images/2.png" alt="Функция шифрования/дешифрования текста">{ #fig:002 width=70% }</p>
+<h2 id="step-3">Step 3</h2>
+<p>Я создала функцию поиска возможных ключей для текстового фрагмента (Рис. [-@fig:003]):</p>
+<p><img src="images/3.png" alt="Подбор возможных ключей для текстового фрагмента">{ #fig:003 width=70% }</p>
+<h2 id="step-4">Step 4</h2>
+<p>Проверка работы всех функций. Шифрование и дешифрование происходит корректно, как и нахождение ключей, с помощью которых можно расшифровать корректно только кусок текста (Рис. [-@fig:004]):</p>
+<p><img src="images/4.png" alt="Результат работы программы">{ #fig:004 width=70% }</p>
+<h1 id="-">Вывод</h1>
+<p>Приобрела практический навык по применению метода однократного гаммирования.</p>
+<h1 id="-">Библиография</h1>
+<ul>
+<li><a href="https://xakep.ru/2019/07/18/crypto-xor/">https://xakep.ru/2019/07/18/crypto-xor/</a></li>
+<li><a href="https://bugtraq.ru/library/books/crypto/chapter7/">https://bugtraq.ru/library/books/crypto/chapter7/</a></li>
+</ul>
+<h2 id="-standout-">{.standout}</h2>
+<p>Спасибо за внимание!</p>
+</body></html>
